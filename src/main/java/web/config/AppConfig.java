@@ -46,6 +46,11 @@ public class AppConfig {
         LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
 
         Properties properties = new Properties();
+        properties.put("hibernate.dialect", env.getProperty("db.dialect"));
+        properties.put("hibernate.hbm2ddl.auto", env.getProperty("db.hbm2ddl.auto"));
+        properties.put("hibernate.current_session_context_class", env.getProperty("db.current_session_context_class"));
+        properties.put("hibernate.show_sql", "true");
+        properties.put("hibernate.format_sql", "true");
         entityManager.setDataSource(getDataSource());
         entityManager.setJpaProperties(properties);
         entityManager.setPackagesToScan(PACKAGES_TO_SCAN);

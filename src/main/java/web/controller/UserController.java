@@ -13,11 +13,11 @@ import web.service.UserService;
 import java.util.List;
 
 @Controller
-public class MyController {
+public class UserController {
     private final UserService userService;
 
     @Autowired
-    public MyController(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
@@ -30,7 +30,7 @@ public class MyController {
         return "index";
     }
 
-    @RequestMapping("/addNewUser")
+    @RequestMapping("/add-new-user")
     public String addNewUser(Model model) {
         User user = new User();
         model.addAttribute("user", user);
@@ -39,14 +39,14 @@ public class MyController {
 
     }
 
-    @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/save-user", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("user") User user) {
 
         userService.saveUser(user);
         return "redirect:/";
     }
 
-    @RequestMapping("/updateInfo")
+    @RequestMapping("/update-info")
     public String updateUser(@RequestParam("id") int id, Model model) {
 
         User user = userService.getUserById(id);
@@ -54,7 +54,7 @@ public class MyController {
         return "user-info";
     }
 
-    @RequestMapping("/deleteUser")
+    @RequestMapping("/delete-user")
     public String deleteUser(@RequestParam("deleteId") int id) {
         userService.deleteUser(id);
         return "redirect:/";

@@ -74,4 +74,14 @@ public class User {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                '}';
+    }
 }

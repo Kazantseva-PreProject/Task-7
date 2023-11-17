@@ -4,13 +4,14 @@ import web.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public interface UserDao {
-    public List<User>getAllUser();
+    List<User> getAllUser();
 
-    public void saveUser(User user);
+    void saveUser(User user);
 
-    public   User getUserById(int id);
+    User getUserById(int id);
 
-    public   void deleteUser(int id);
+    void deleteUser(int id);
 }
