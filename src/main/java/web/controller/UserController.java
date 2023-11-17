@@ -30,7 +30,7 @@ public class UserController {
         return "index";
     }
 
-    @RequestMapping("/add-new-user")
+    @RequestMapping("/addNewUser")
     public String addNewUser(Model model) {
         User user = new User();
         model.addAttribute("user", user);
@@ -39,14 +39,14 @@ public class UserController {
 
     }
 
-    @RequestMapping(value = "/save-user", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("user") User user) {
 
         userService.saveUser(user);
         return "redirect:/";
     }
 
-    @RequestMapping("/update-info")
+    @RequestMapping("/updateUser")
     public String updateUser(@RequestParam("id") int id, Model model) {
 
         User user = userService.getUserById(id);
@@ -54,7 +54,7 @@ public class UserController {
         return "user-info";
     }
 
-    @RequestMapping("/delete-user")
+    @RequestMapping("/deleteUser")
     public String deleteUser(@RequestParam("deleteId") int id) {
         userService.deleteUser(id);
         return "redirect:/";
